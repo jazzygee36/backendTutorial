@@ -7,6 +7,7 @@ import bodyParser from 'body-parser';
 import authRoutes from './modules/users/routes';
 import userProfile from './modules/profile/route';
 import sequelize, { default as db } from './config/db';
+import getCountries from './modules/countries/route';
 
 const Port = process.env.PORT || 4000;
 
@@ -19,6 +20,7 @@ app.use(bodyParser.json());
 
 app.use('/api', authRoutes);
 app.use('/api', userProfile);
+app.use('/api', getCountries);
 
 (sequelize.query('SELECT 1') as unknown as Promise<any>)
   .then(() => {
