@@ -6,7 +6,8 @@ interface UserAttributes {
   id?: number;
   username: string;
   email: string;
-  password: string;
+  password?: string;
+  googleId?: string;
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -22,6 +23,7 @@ class User
   public username!: string;
   public email!: string;
   public password!: string;
+  public googleId!: string;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
 }
@@ -49,6 +51,10 @@ User.init(
     password: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    googleId: {
+      type: DataTypes.STRING,
+      unique: true,
     },
   },
   {

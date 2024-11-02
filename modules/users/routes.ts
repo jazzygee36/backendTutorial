@@ -7,6 +7,7 @@ import {
   deleteUserById,
   requestPasswordReset,
   resetPassword,
+
 } from './controller';
 const route = express.Router();
 
