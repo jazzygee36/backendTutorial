@@ -17,6 +17,7 @@ passport.use(
             googleId: profile.id,
             username: profile.displayName,
             email: profile.emails?.[0].value || '',
+            // password: profile.password || ''
           },
         });
         done(null, user);

@@ -10,6 +10,7 @@ import sequelize, { default as db } from './config/db';
 import getBanks from './modules/banks/route';
 import AllCountries from './modules/countries/route';
 import authController from './modules/googleAuth/route';
+import rechargeCardVendors from './modules/rechargeCard/route';
 import passport from 'passport';
 import session from 'express-session';
 
@@ -37,6 +38,7 @@ app.use('/api', userProfile);
 app.use('/api', getBanks);
 app.use('/api', AllCountries);
 app.use('/api', authController);
+app.use('/api', rechargeCardVendors);
 
 (sequelize.query('SELECT 1') as unknown as Promise<any>)
   .then(() => {
